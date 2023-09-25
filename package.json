@@ -1,0 +1,64 @@
+{
+    "name": "bostalms",
+    "private": true,
+    "version": "1.0.0",
+    "description": "A simple library system built with Node.js & Svelte",
+    "main": "index.js",
+    "scripts": {
+        "preinstall": "rm -rf {.,packages/*}/{node_modules,package-lock.json}",
+        "postinstall": "lerna bootstrap --no-ci",
+        "start": "concurrently 'npm:start-*'",
+        "start-api": "lerna run --scope 'lms-api' start --stream",
+        "start-ui": "lerna run --scope 'lms-ui' dev --stream",
+        "migrate-db": "lerna run --scope 'lms-api' migrate --stream",
+        "seed-db": "lerna run --scope 'lms-api' seed --stream",
+        "test": "lerna run test --concurrency=1 --stream",
+        "add": "lerna add",
+        "format": "prettier --write --plugin-search-dir=. './packages/**/*'",
+        "lint": "eslint './packages/**/*.{js,svelte}'",
+        "lint-fix": "eslint --fix './packages/**/*.{js,svelte}'"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/MohanadAmrr/BostaLMS.git"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/MohanadAmrr/BostaLMS/issues"
+    },
+    "homepage": "https://github.com/MohanadAmrr/BostaLMS#readme",
+    "devDependencies": {
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "concurrently": "^5.2.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-config-standard": "^14.1.1",
+        "eslint-plugin-import": "^2.20.2",
+        "eslint-plugin-node": "^11.1.0",
+        "eslint-plugin-promise": "^4.2.1",
+        "eslint-plugin-standard": "^4.0.1",
+        "eslint-plugin-svelte3": "^2.7.3",
+        "husky": "^4.2.5",
+        "lerna": "^3.20.2",
+        "lint-staged": "^10.1.7",
+        "prettier": "^2.0.5",
+        "prettier-plugin-svelte": "^1.0.0",
+        "svelte": "^3.22.1"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged",
+            "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+        }
+    },
+    "lint-staged": {
+        "*.{js,svelte}": [
+            "prettier --write",
+            "eslint --fix"
+        ]
+    },
+    "dependencies": {}
+}

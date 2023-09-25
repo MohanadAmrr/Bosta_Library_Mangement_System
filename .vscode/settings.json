@@ -1,0 +1,21 @@
+{
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "editor.formatOnSave": true,
+    "eslint.validate": ["javascript", "svelte"],
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[svelte]": {
+        "editor.defaultFormatter": "JamesBirtles.svelte-vscode"
+    },
+    "files.associations": {
+        "*.svelte": "html"
+    },
+    "emmet.includeLanguages": {
+        "svelte": "html"
+    },
+    "editor.codeActionsOnSave": {
+        "source.fixAll.eslint": true
+    },
+    "svelte.plugin.svelte.enable": true
+}

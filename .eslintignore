@@ -1,0 +1,9 @@
+node_modules
+
+*/**/public/build
+
+*.json
+*.md
+
+# To ensure eslint does not ignore filenames that begin with `.` (eg. .eslintrc.js)
+!.*.js
